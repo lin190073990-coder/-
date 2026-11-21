@@ -1,0 +1,44 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+runs-on: ubuntu-latest
+with:
+- uses: actions/checkout@v4
+- uses: actions/checkout@v4
+
+- uses: actions/setup-java@v4
+with:
+distribution: temurin
+
+java-version: "17"
+- uses: gradle/actions/setup-gradle@v4
+gradle-version: "8.9"
+- name: 找到工程目录
+run: |
+if [ -f settings.gradle.kts ]; then
+if [ -f QingPing-Android.zip ]; then unzip -q -o QingPing-Android.zip -d _src; fi
+if [ -f settings.gradle.kts ]; then
+echo "PROJECT_DIR=." >> "$GITHUB_ENV"
+elif [ -f _src/QingPing/settings.gradle.kts ]; then
+echo "PROJECT_DIR=." >> "$GITHUB_ENV"- uses: actions/checkout@v4
+
+elif [ -f _src/QingPing/settings.gradle.kts ]; then
+eecho "PROJECT_DIR=." >> "$GITHUB_ENV"
+echo "PROJECT_DIR=." >> "$GITHUB_ENV"- useselif [ -f _src/QingPing/settings.gradle.kts ]; then
+echo "找不到工程": ${{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apk
+elseelif [ -f _src/QingPing/settings.gradle.kts ]; then
+
+eecho "PROJECT_DIR=." >> "$GITHUB_ENV"
+echo "PROJECT_DIR=." >> "$GITHUB_ENV"- useselif [ -f _src/QingPing/settings.gradle.kts ]; then
+echo "找不到工程": - name: :${{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apkelseelif [ -f _src/QingPing/settings.gradle.kts ]; then构{{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apk:$namegradle :app:assembleDebug --no-daemon --stacktrace
+- uses: - uses: actions/setup-java@v4 na--no-daemon --stacktrace: name: QingPing-debug-apk- uses:ctions/upload-artifact@v4if-no-files-found: error/app/build/outputs/apk/debug/app-debug.apkions/setup-java@v4 name: 构建 debug APK
+gradle :app:assembleDebug --no-daemon --stacktrace uses:actions/upload-artifact@v4if-no-files-found: - namengPing-debug-apk- uses:actions/upload-artifact@v4if-no-files-found: 构istribution: a: |gradle :app:assembleDebug --no-daemon --stacktrace uses:actions/upload-artifact@v4if-no-files-found: - namengPing-debug-apk- uses:actions/upload-artifact@v4if-no-files-found: 构istribution: temurinjava-version: "17"run: |if [ -f QingPing-Android.zip ]; then unzip -q -o QingPing-Android.zip -d _src; fi- name: 找到工程目录ame: yes | sdkmanager --licenses > /dev/null || true- uses: gradle/actions/setup-gradle@v4gradle :app:assembleDebug --no-daemon --stacktrace:istribution: nemurinjava-version: "17"Q: |ingPing-debug-f apk-yes | sdkmanager --licenses > /dev/null || trueuses:ctions/upload-artifact@v4ifnameingPing-debug-apk- uses:actions/upload-artifact@v4if-no-files-found: error/app/build/outputs/apk/debug/app-debug.apkQ :app:assembleDebug
